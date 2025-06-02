@@ -1,0 +1,14 @@
+auth:
+  rootPassword: MyRootPassword
+
+service:
+  type: NodePort
+  nodePort: 32017
+
+initdbScripts:
+  init-user.js: |
+    db.createUser({
+      user: "demomongodb",
+      pwd: "demopassword",
+      roles: [{ role: "readWrite", db: "mydatabase" }]
+    });
